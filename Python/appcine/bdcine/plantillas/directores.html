@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Directores {% endblock %}
+
+{% block content %}
+<a onclick="window.location.href='/{{datosdirector}}'">
+<h1>DIRECTORES</h1>
+</a>
+{% for director in datosdirector %}
+<a onclick="window.location.href='/{{director.nombre}}_{{director.apellido}}'">
+<li>{{director}}</li>
+ </a>
+{% endfor %}
+<p>{{datosdirector.fecha_nacimiento}}</p>
+{% endblock %}

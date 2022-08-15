@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} {{lulu}} {% endblock %}
+
+
+{% block content %}
+<p><h2 style="display:inline;">Director: </h2><h1 style="display:inline;color:blue">{{datos}}</h1></p>
+<p><h2 style="display:inline">Fecha Nacimiento: </h2><h2 style="display:inline;color:blue">{{datos.fecha_nacimiento}}</h2></p>
+<p><h2>Peliculas: </h2></p>
+{% for directorpeli in peli %}
+    {% if directorpeli.director_id == datos.id %}
+    <a onclick="window.location.href='/pelicula/{{directorpeli}}'">
+        <li>{{directorpeli}} ({{directorpeli.agno_estreno}})</li>
+    </a>
+    {% endif %}
+ </a>
+{% endfor %}
+
+{% endblock %}
